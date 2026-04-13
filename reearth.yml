@@ -1,0 +1,43 @@
+id: image-widget-plugin
+version: 1.0.0
+name: Image Widget
+author: ""
+description: Displays an image on the map screen.
+
+extensions:
+  - id: image-widget
+    type: widget
+    name: Image Widget
+    schema:
+      groups:
+        - id: default
+          title: Image Settings
+          fields:
+            - id: imageUrl
+              type: url
+              title: Image URL
+              ui: image
+            - id: width
+              type: number
+              title: Width (px)
+              description: "Display width in pixels"
+              defaultValue: 200
+            - id: enableLink
+              type: bool
+              title: Enable Link
+              description: "Enable click-to-navigate behavior"
+              defaultValue: false
+            - id: linkUrl
+              type: string
+              title: Link URL
+              description: "URL to open when the image is clicked"
+            - id: linkTarget
+              type: string
+              title: Link Target
+              ui: selection
+              choices:
+                - key: _blank
+                  label: "New tab"
+                - key: _self
+                  label: "Same tab"
+              defaultValue: _blank
