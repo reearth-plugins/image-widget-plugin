@@ -1,16 +1,7 @@
-// ============================================================
-//  IMAGE WIDGET — 全項目 Inspector で設定
-//  フォールバック値のみここで変更可
-// ============================================================
-
 var CONFIG = {
   imageUrlFallback: "https://example.com/logo.svg",
   widthFallback: 200,
 };
-
-// ============================================================
-//  以下は変更不要
-// ============================================================
 
 function render() {
   var prop = reearth.extension.widget?.property?.default;
@@ -51,7 +42,7 @@ function render() {
     </body>
     </html>
   `,
-    { visible: true, width: width },
+    { visible: true },
   );
 }
 
