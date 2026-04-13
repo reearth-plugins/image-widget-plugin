@@ -18,7 +18,7 @@ function render() {
     <head>
       <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { background: transparent; overflow: visible; }
+        html, body { background: transparent; overflow: visible; width: ${width}px; }
         #root { display: inline-block; line-height: 0; }
         img {
           display: block;
