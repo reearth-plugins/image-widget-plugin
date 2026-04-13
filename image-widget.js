@@ -20,7 +20,8 @@ function render() {
   var linkUrl = prop?.linkUrl || "";
   var linkTarget = prop?.linkTarget || "_blank";
 
-  reearth.ui.show(`
+  reearth.ui.show(
+    `
     <!DOCTYPE html>
     <html>
     <head>
@@ -39,16 +40,19 @@ function render() {
     </head>
     <body>
       <div id="root">
-        ${enableLink && linkUrl
-          ? `<a href="${linkUrl}" target="${linkTarget}" rel="noopener noreferrer">
+        ${
+          enableLink && linkUrl
+            ? `<a href="${linkUrl}" target="${linkTarget}" rel="noopener noreferrer">
                <img src="${imageUrl}" alt="" />
              </a>`
-          : `<img src="${imageUrl}" alt="" />`
+            : `<img src="${imageUrl}" alt="" />`
         }
       </div>
     </body>
     </html>
-  `, { visible: true });
+  `,
+    { visible: true, width: width },
+  );
 }
 
 render();
