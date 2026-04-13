@@ -1,10 +1,55 @@
 # Image Widget Plugin
 
-Re:Earth Visualizer上に画像（SVG・PNG・JPG）をオーバーレイ表示するウィジェットプラグイン。
+Re:Earth Visualizer上に画像をオーバーレイ表示できるウィジェットプラグインです。
+ロゴやアイコンを地図の上に重ねて表示したり、クリックでリンクに飛ばすこともできます。
 
 ---
 
-## ファイル構成
+## スクリーンショット
+
+![screenshot](images/screenshot.png)
+
+![inspector](images/inspector.png)
+
+---
+
+## インストール
+
+### A. GitHub URLから（かんたん）
+
+1. Re:Earth Visualizer → プラグイン →「Public GitHub repository」
+2. 以下のURLを入力してインストール
+
+```
+https://github.com/reearth-plugins/image-widget-plugin
+```
+
+### B. ZIPファイルから
+
+1. [Releases](https://github.com/reearth-plugins/image-widget-plugin/releases) から最新の `image-widget-plugin.zip` をダウンロード
+2. Re:Earth Visualizer → プラグイン →「Upload Zip file from PC」でアップロード
+
+---
+
+## 使い方
+
+追加後、右パネルのInspectorから以下の項目を設定できます。
+
+| 項目        | 説明                                                                                    |
+| ----------- | --------------------------------------------------------------------------------------- |
+| Image URL   | 表示する画像のURL。アップロードボタンからAssetを選ぶこともできます（SVG・PNG・JPG対応） |
+| Width (px)  | 表示幅（ピクセル）。高さは自動で縦横比を維持します                                      |
+| Enable Link | ONにするとクリック時にリンクに遷移します                                                |
+| Link URL    | クリック時の遷移先URL（Enable Link が ON のときのみ動作）                               |
+| Link Target | New tab（新タブ） / Same tab（同タブ）                                                  |
+
+> ウィジェットの表示位置はRe:EarthのWidget Align Systemで調整できます。
+
+---
+
+## For Developers
+
+### ファイル構成
 
 ```
 image-widget-plugin/
@@ -12,42 +57,17 @@ image-widget-plugin/
 └── image-widget.js   # ウィジェット本体
 ```
 
----
+### カスタマイズ
 
-## インストール方法
+`image-widget.js` の先頭にある `CONFIG` でフォールバック値を変更できます。
 
-1. `reearth.yml` と `image-widget.js` を同じフォルダに入れてzip圧縮する
-2. Re:Earth Visualizer → プラグイン →「Upload Zip file from PC」でアップロード
-3. ウィジェット一覧に「Image Widget」が表示されるので追加する
-4. 更新時は一度アンインストールしてから再インストールする
+```js
+var CONFIG = {
+  imageUrlFallback: "https://example.com/logo.svg", // 画像未設定時のデフォルト
+  widthFallback: 200, // 幅未設定時のデフォルト
+};
+```
 
----
+### 更新時
 
-## Inspector 設定項目
-
-| 項目 | 型 | 説明 |
-|---|---|---|
-| Image URL | url | 表示する画像のURL。アップロードボタンからAssetを選択することも可能（SVG・PNG・JPG対応） |
-| Width (px) | number | 表示幅（ピクセル）。高さは自動で縦横比を維持 |
-| Enable Link | bool | ONにするとクリック時にリンク遷移が有効になる |
-| Link URL | string | クリック時の遷移先URL（Enable Link が ON のときのみ動作） |
-| Link Target | string | `New tab`（新タブ） / `Same tab`（同タブ） |
-
----
-
-## 使用例
-
-Re:Earthのロゴを右下に表示してクリックでサイトに遷移させる場合：
-
-- Image URL: `https://example.com/reearth-logo.svg`
-- Width (px): `120`
-- Enable Link: ON
-- Link URL: `https://reearth.io`
-- Link Target: `New tab`
-
----
-
-## 注意事項
-
-- ウィジェットの表示位置はRe:EarthのWidget Align Systemで調整する
-- フォールバック用のデフォルト画像URLは `image-widget.js` の `CONFIG` 内で変更可能
+同じIDのプラグインをアンインストールしてから再インストールしてください。
