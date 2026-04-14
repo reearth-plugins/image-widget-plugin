@@ -1,6 +1,6 @@
 # Image Widget Plugin
 
-Re:Earth Visualizer上に画像をオーバーレイ表示できるウィジェットプラグインです。
+Re:Earth Visualizer上に画像を表示できるウィジェットプラグインです。
 ロゴやアイコンを地図の上に重ねて表示したり、クリックでリンクに飛ばすこともできます。
 
 ---
